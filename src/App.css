@@ -1,38 +1,561 @@
-.App {
-  text-align: center;
-}
+body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes animate{
+  0%{
+    border-color:#fff;
+    transform:translate(0,0);
+  }
+  20%{
+    border-color:#fff;
+    transform:translate(15px,15px);
+  }
+  20.1%,100%{
+    border-color:#ffd64a;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  margin: 0 auto;
+   max-width: 100%;
+  padding: 0 0 15px;  
+  margin-top: auto;
+}
+
+
+
+.mainLayout .ant-layout-header {
+  padding: 0;
+  height: auto;
+  line-height: 1.6;
+} 
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.bgGray {
+  background: #fafafa;
+}
+
+
+.bgBlack {
+  background: #101119;
+  padding-left: 5%;
+}
+
+
+
+/* 
+title holder
+------------
+*/
+
+.title {
+  text-align: left;
+  position: relative;
+  color: white;
+  
+}
+
+
+/* 
+header
+------ 
+*/
+.ant-layout-header {
+  position:fixed;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background:none;
+  
+}
+.headerstyle{
+  color:white;
+  font-size: large;
+}
+.header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+
+
+.header .logo {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+.header .logo .fas {
+  color: white;
+  margin: 0 5px 0 0;
+  font-size: 50%;
+}
+
+.header .logo a {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header .ant-anchor-wrapper {
+  background: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.header .ant-anchor {
+  display: flex;
+  
+}
+
+.header .ant-anchor-ink {
+  display: none;
+
+}
+
+.header .ant-anchor-link {
+  padding: 0 20px;
+  line-height: 1.4;
+  position: relative;
+  color: #fff;
+
+}
+
+.header .ant-anchor-link:before,
+.header .ant-anchor-link:after {
+  width: 1px;
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 30%;
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+
+.header .ant-anchor-link:after {
+  left: auto;
+  right: 30%;
+}
+
+.header .ant-anchor-link.ant-anchor-link-active:before,
+.header .ant-anchor-link:hover:before {
+  left: 5%;
+  opacity: 1;
+}
+
+.header .ant-anchor-link.ant-anchor-link-active:after,
+.header .ant-anchor-link:hover:after {
+  right: 5%;
+  opacity: 1;
+}
+
+/* ant menu */
+.header .ant-menu {
+  border: 0;
+  background: none !important;
+}
+
+
+.header .ant-menu li.ant-menu-item {
+  position: relative;
+  color: white;
+}
+
+.header .ant-menu li.ant-menu-item:before,
+.header .ant-menu li.ant-menu-item:after {
+
+  background: transparent;
+  width: 1px;
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 30%;
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+
+.header .ant-menu li.ant-menu-item:after {
+  left: auto;
+  right: 30%;
+}
+
+.header .ant-menu li.ant-menu-item-selected,
+.header .ant-menu li.ant-menu-item:hover {
+  background: none;
+
+}
+
+.header .ant-menu li.ant-menu-item-selected:before,
+.header .ant-menu li.ant-menu-item:hover:before {
+  left: 5%;
+  opacity: 1;
+}
+
+.header .ant-menu li.ant-menu-item-selected:after,
+.header .ant-menu li.ant-menu-item:hover:after {
+  right: 5%;
+  opacity: 1;
+  color: #333;
+}
+
+
+
+/* 
+dashboard
+---- 
+*/
+.dashboardBlock {
+  background-size:cover;
+  height:550px;
+  position: relative;
+  text-align: center;
+}
+
+.dashboardBlock .ant-carousel,
+.dashboardBlock .ant-carousel div {
+  height: 100%;
+  animation-duration: 0s;
+}
+
+.dashboardBlock .slick-dots li button {
+  background: #000 !important;
+}
+
+.dashboardBlock .slick-dots li.slick-active button {
+  background: #5b5b5b !important;
+}
+
+.dashboardBlock .content {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10%;
+  color: #fff;
+}
+
+.dashboardBlock h1 {
+  font-size: 30px;
+  margin: 0 0 30px;
+  line-height: 1.2;
+  margin-left: 17%;
+}
+
+.dashboardBlock p {
+  margin: 0 0 30px;
+  margin-left: 17%;
+}
+
+.dashboardBlock .buttonHolder {
+  height: auto !important;
+}
+
+.dashboardBlock .buttonHolder button,
+.dashboardBlock .buttonHolder .fas {
+  margin: 10px ;
+}
+
+
+/* 
+about
+----- 
+*/
+.aboutBlock .content {
+  text-align: center;
+  margin: 0 0 50px;
+}
+
+.aboutBlock .icon {
+  font-size: 2.5rem;
+  color: white;
+  margin: 0 0 10px;
+  
+}
+
+.aboutBlock .content {
+  text-align: center;
+ 
+}
+
+.code p {
+    font-size: 1.1rem;
+    line-height: 2;
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-family: "Lato",sans-serif;
+    color: white;
+
+}
+
+
+.code u{
+  font-size: 1.1rem;
+  font-family: sans-serif;
+}
+
+.code h1{
+  font-family: "Lato",sans-serif;
+  font-size: x-large;
+  font-weight: 400;
+  color: white;
+}
+
+.copyright{
+  font-size: 0.7rem;
+  margin-top: 1.5rem;
+  color: #333;
+  margin-left: 40%;
+}
+
+.pictureimg{
+  position: absolute;
+  bottom: 2rem;
+  margin-bottom: 80%;
+  color: white;
+  font-size: 1.3rem;
+  margin-left: 10px;
+}
+
+.button{
+  bottom: 2.5rem;
+  position:relative;
+  margin-left: 60%;
+  background-color: transparent;
+  color: white;
+  border: none;
+  
+}
+
+.button:hover{
+  border: none;
+}
+
+.site{
+  font-size: larger;
+}
+
+
+.img{
+  opacity:0.4
+
+}
+
+.img:hover{
+  opacity: 0.3;
+
+}
+
+.icon:link,
+.icon:visited {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #101119;
+  padding: 1rem 2.5rem;
+  height: 1rem;
+  width: 1rem;
+  margin-top: 4%;
+  border-radius: 1%;
+  border: none;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.icon::before {
+  background: #fff;
+  content: "";
+  height: 155px;
+  opacity: 0;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  width: 50px;
+  transition: all 3000ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.icon::after {
+  background: #fff;
+  content: "";
+  height: 20rem;
+  opacity: 0;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  transition: all 3000ms cubic-bezier(0.19, 1, 0.22, 1);
+  width: 8rem;
+}
+.icon__new::before {
+  left: -50%;
+}
+
+.icon__new::after {
+  left: -100%;
+}
+
+.icon:hover,
+.icon:active {
+  transform: translateY(-3px);
+  color: #fff;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.icon__new:hover::before {
+  left: 120%;
+  opacity: 0.5s;
+}
+
+.icon__new:hover::after {
+  left: 200%;
+  opacity: 0.6;
+}
+.icon span {
+  z-index: 20;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+.title{
+  font-size : larger ;
+  bottom: 8rem;
+  margin-left: 40%;
+}
+
+.contactBlock .ant-form {
+  max-width: 640px;
+  margin: auto;
+}
+
+.titlefooter {
+  color:#A9A9A9;
+
+  
+}
+
+.submit{
+  border: none;
+  background-color:transparent;
+  color: #A9A9A9;
+  font-size: 1.5rem;
+}
+
+.gutter {
+  margin-left:80%;
+}
+
+.lanranlogo{
+  margin-top: 100px;
+}
+
+.button1{
+  background-color: #fafafa;
+  border: none;
+}
+
+.button1:hover{
+  background-color: #936B09	;
+}
+
+
+
+
+/* 
+footer
+------
+*/
+.ant-layout-footer {
+  background: black !important;
+  color: white !important;
+  padding: 60px 0 !important;
+  
+}
+
+.footer .logo {
+  margin-left:100%;
+}
+
+.mobileVisible {
+  display: none;
+  color:white;
+}
+
+.mobileHidden {
+  display: block;
+  color: white;
+  margin-left: 30%;
+}
+.header-icons{
+  color: #fff;
+}
+/* 
+responsive
+---------- 
+*/
+@media only screen and (max-width: 991px) {
+  .pricingBlock .ant-row > div:nth-child(2) .ant-list-item {
+    transform: scale(1.14);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media only screen and (max-width: 2984px) {
+  .pricingBlock .ant-row > div:nth-child(2) .ant-list-item {
+    transform: scale(1.14);
   }
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .featureBlock.sample {
+    margin-top: 20%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .pricingBlock .ant-row > div:nth-child(2) .ant-list-item {
+    transform: scale(1);
+  }
+
+  .mobileVisible {
+    display: block;
+  }
+  
+  .mobileHidden {
+    display: none;
+    
+  }
+}
+
+
+
+::-webkit-scrollbar {
+
+  width: 5px;
+   
+  background-color: #5b5b5b; 
+}
+
+
+
+.article {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  
+}
+
+.header {
+  font-size: 80px;
+  color: white;
+  
 }
